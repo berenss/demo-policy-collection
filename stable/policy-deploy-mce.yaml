@@ -38,7 +38,7 @@ spec:
                   namespace: multicluster-engine
                 spec:
                   name: multicluster-engine
-                  channel: stable-2.1    # the latest available as of Fall 2022
+                  channel: stable-2.2    # the latest available as of Spring 2023
                   installPlanApproval: Automatic
                   source: redhat-operators
                   sourceNamespace: openshift-marketplace
