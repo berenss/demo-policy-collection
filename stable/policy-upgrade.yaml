@@ -13,6 +13,24 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
+          name: adm-ack
+        spec:
+          remediationAction: inform
+          severity: low
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1
+                data:
+                  ack-4.11-kube-1.25-api-removals-in-4.12: "true"
+                kind: ConfigMap
+                metadata:
+                  name: admin-acks
+                  namespace: openshift-config  
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
           name: upgrade-cluster
         spec:
           remediationAction: inform
@@ -27,7 +45,7 @@ spec:
                 spec:
                   channel: stable-4.12
                   desiredUpdate:
-                    version: 4.12.17
+                    version: 4.12.18
                   upstream: https://api.openshift.com/api/upgrades_info/v1/graph
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
