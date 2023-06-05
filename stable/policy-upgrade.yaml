@@ -109,4 +109,4 @@ spec:
       - key: upgrade
         operator: In
         values:
-          - true
+          - 'true'
