@@ -28,7 +28,6 @@ spec:
                   channel: stable-4.12
                   desiredUpdate:
                     version: 4.12.17
-                    image: quay.io/openshift-release-dev/ocp-release@sha256:7ca5f8aa44bbc537c5a985a523d87365eab3f6e72abc50b7be4caae741e093f4
                   upstream: https://api.openshift.com/api/upgrades_info/v1/graph
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
@@ -65,3 +64,31 @@ spec:
                     - status: 'True'
                       type: Degraded
   remediationAction: inform
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: binding-upgrade-cluster
+placementRef:
+  name: placement-upgrade-cluster
+  kind: PlacementRule
+  apiGroup: apps.open-cluster-management.io
+subjects:
+  - name: upgrade-cluster
+    kind: Policy
+    apiGroup: policy.open-cluster-management.io
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: placement-upgrade-cluster
+spec:
+  clusterConditions:
+    - status: 'True'
+      type: ManagedClusterConditionAvailable
+  clusterSelector:
+    matchExpressions:
+      - key: upgrade
+        operator: In
+        values:
+          - true
