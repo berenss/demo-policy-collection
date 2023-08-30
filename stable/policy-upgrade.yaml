@@ -8,12 +8,6 @@ metadata:
     policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
 spec:
   disabled: false
-  dependencies:
-  - apiVersion: policy.open-cluster-management.io/v1
-    compliance: Compliant
-    kind: Policy
-    name: admin-acks-413
-    namespace: demo-policy
   policy-templates:
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
