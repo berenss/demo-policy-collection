@@ -34,6 +34,7 @@ spec:
                   channel: stable-4.13
                   desiredUpdate:
                     version: 4.12.29
+                    image: quay.io/openshift-release-dev/ocp-release@sha256:a3e03e75b5c9bf5ec69eb8d0b063a1199440cd6eae97e0ec8ad6862ce4017cc5
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
