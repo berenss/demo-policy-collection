@@ -28,31 +28,3 @@ spec:
                   name: admin-acks
                   namespace: openshift-config  
   remediationAction: enforce
----
-apiVersion: policy.open-cluster-management.io/v1
-kind: PlacementBinding
-metadata:
-  name: binding-admin-acks-413
-placementRef:
-  name: placement-admin-acks-413
-  kind: PlacementRule
-  apiGroup: apps.open-cluster-management.io
-subjects:
-  - name: admin-acks-413
-    kind: Policy
-    apiGroup: policy.open-cluster-management.io
----
-apiVersion: apps.open-cluster-management.io/v1
-kind: PlacementRule
-metadata:
-  name: placement-admin-acks-413
-spec:
-  clusterConditions:
-    - status: 'True'
-      type: ManagedClusterConditionAvailable
-  clusterSelector:
-    matchExpressions:
-      - key: admin-acks-413
-        operator: In
-        values:
-          - 'true'
