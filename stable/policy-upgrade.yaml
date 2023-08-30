@@ -73,7 +73,7 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
-          name: policy-upgrade-checkclusteroperator-degraded
+          name: policy-upgrade-checkclusterversion-progressing
         spec:
           remediationAction: inform
           severity: low
