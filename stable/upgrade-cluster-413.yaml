@@ -14,6 +14,11 @@ spec:
     kind: Policy
     name: admin-acks-413
     namespace: demo-policy
+  - apiVersion: policy.open-cluster-management.io/v1
+    compliance: Compliant
+    kind: Policy
+    name: policy-upgrade
+    namespace: demo-policy    
   policy-templates:
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
