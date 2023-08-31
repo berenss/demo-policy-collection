@@ -1,0 +1,42 @@
+apiVersion: policy.open-cluster-management.io/v1beta1
+kind: PolicySet
+metadata:
+  name: cluster-upgrade-412-413
+  namespace: demo-policy
+spec:
+  description: Upgrade clusters to 4.13
+  policies:
+    - admin-acks-413
+    - upgrade-cluster
+    - upgrade-cluster-413
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: cluster-upgrade-412-413-placement
+  namespace: demo-policy
+spec:
+  clusterSets:
+    - global
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: upgrade
+              operator: In
+              values:
+                - "true"
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: cluster-upgrade-412-413-placement
+  namespace: demo-policy
+placementRef:
+  name: cluster-upgrade-412-413-placement
+  apiGroup: cluster.open-cluster-management.io
+  kind: Placement
+subjects:
+  - name: cluster-upgrade-412-413
+    apiGroup: policy.open-cluster-management.io
+    kind: PolicySet
