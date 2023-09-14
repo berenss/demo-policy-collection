@@ -14,7 +14,7 @@ metadata:
     policy.open-cluster-management.io/standards: CM-2 Baseline Configuration
 spec:
   disabled: false
-  remediationAction: inform
+  remediationAction: enforce
   policy-templates:
     - objectDefinition:
         apiVersion: policy.open-cluster-management.io/v1
@@ -60,6 +60,10 @@ spec:
                   name: multiclusterengine
                 spec:
                   availabilityConfig: Basic   # can be either high (for HA config) or basic. for SNO use basic
+                  overrides:
+                    components:
+                      name: "local-cluster"
+                      enabled: "false"
             - complianceType: musthave
               objectDefinition:
                 apiVersion: operators.coreos.com/v1alpha1
