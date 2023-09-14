@@ -62,8 +62,8 @@ spec:
                   availabilityConfig: Basic   # can be either high (for HA config) or basic. for SNO use basic
                   overrides:
                     components:
-                      name: "local-cluster"
-                      enabled: "false"
+                      - name: "local-cluster"
+                        enabled: "false"
             - complianceType: musthave
               objectDefinition:
                 apiVersion: operators.coreos.com/v1alpha1
