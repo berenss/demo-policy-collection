@@ -63,7 +63,7 @@ spec:
                   overrides:
                     components:
                       - name: "local-cluster"
-                        enabled: "false"
+                        enabled: false
             - complianceType: musthave
               objectDefinition:
                 apiVersion: operators.coreos.com/v1alpha1
