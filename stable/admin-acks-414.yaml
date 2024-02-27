@@ -1,7 +1,7 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-  name: admin-acks-413
+  name: admin-acks-414
   annotations:
     policy.open-cluster-management.io/standards: NIST SP 800-53
     policy.open-cluster-management.io/categories: CM Configuration Management
@@ -22,7 +22,7 @@ spec:
               objectDefinition:
                 apiVersion: v1
                 data:
-                  ack-4.12-kube-1.26-api-removals-in-4.13: "true"
+                  ack-4.13-kube-1.27-api-removals-in-4.14: "true"
                 kind: ConfigMap
                 metadata:
                   name: admin-acks
