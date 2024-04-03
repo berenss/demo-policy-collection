@@ -4,6 +4,7 @@ metadata:
   name: cluster-upgrade-4-14
   namespace: demo-policy
 spec:
+  disabled: true
   description: tasks like admin acks and channel setting
   policies:
     - admin-acks-414
